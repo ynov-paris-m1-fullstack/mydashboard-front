@@ -1,3 +1,4 @@
+import Link from "next/link";
 import StatCard from "@/components/StatCard/index";
 import { fetchGraphql } from "@/services/fetchGraphql";
 import { GET_SALES_FOR_TABLE } from "@/graphql/queries/sale";
@@ -25,8 +26,10 @@ export default async function Home() {
         {
           sales.map((sale) => (
             <div key={sale.saleId}>
+              <Link >
               <span>{sale.saleDate}</span>
               <span>{sale.totalRevenue}</span>
+              </Link>
             </div>
           ))
         }
