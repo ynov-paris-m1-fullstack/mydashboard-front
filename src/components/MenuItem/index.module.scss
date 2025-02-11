@@ -1,0 +1,13 @@
+.wrapper {
+    list-style: none;
+    margin-bottom: 18px;
+    a {
+        display: flex;
+        gap: 18px;
+        padding: 20px;
+        border-radius: 5px;
+        &:hover {
+            background: white;
+        }
+    }
+}
