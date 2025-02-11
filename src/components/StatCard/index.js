@@ -10,6 +10,7 @@ const index = ({label, value, icon}) => {
             </div>
             <div className={styles.right__part}>
                 <div
+                    className={styles.icon}
                     dangerouslySetInnerHTML={{__html: icon}}
                 />
             </div>
