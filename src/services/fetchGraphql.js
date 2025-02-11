@@ -1,4 +1,7 @@
-export const fetchGraphql = async ({ resolver }) => {
+export const fetchGraphql = async ({
+    resolver,
+    variables
+}) => {
     try {
         const response = await fetch(process.env.GRAPHQL_ENDPOINT, {
             method: "POST",
@@ -7,7 +10,8 @@ export const fetchGraphql = async ({ resolver }) => {
             },
             body: JSON.stringify(
                 {
-                    query: resolver
+                    query: resolver,
+                    ...(variables && { variables })
                 }
             )
         });
