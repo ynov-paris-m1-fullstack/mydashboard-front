@@ -1,8 +1,9 @@
-export const GET_SALES = `
-    query {
+export const GET_SALES_FOR_TABLE = `
+    query getSales {
         sales {
+            saleId
             totalRevenue
-            quantitySold
+            saleDate
         }
     }
 `;
