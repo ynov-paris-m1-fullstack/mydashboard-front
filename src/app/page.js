@@ -23,7 +23,7 @@ export default async function Home() {
       <StatCard label="Average sales" value={stats.getStats.averageSaleAmount} icon={salesIcon} />
       </div>
       <div className={styles.invoice__table}>
-        {
+        {/* {
           sales.map((sale) => (
             <div key={sale.saleId}>
               <Link >
@@ -32,7 +32,7 @@ export default async function Home() {
               </Link>
             </div>
           ))
-        }
+        } */}
       </div>
     </>
   );

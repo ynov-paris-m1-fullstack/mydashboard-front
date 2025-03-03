@@ -1,0 +1,19 @@
+.wrapper {
+    margin: 10px 0px;
+    label {
+        display: block;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        transition: 0.3s all;
+        &:focus {
+            outline: 1px solid #000;
+        }
+    }
+}
