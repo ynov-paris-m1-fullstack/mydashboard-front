@@ -6,6 +6,7 @@ const Index = ({
     name,
     type,
     handleChange,
+    required
 }) => {
     return (
         <div className={styles.wrapper}> 
@@ -15,6 +16,7 @@ const Index = ({
                 value={value}
                 name={name}
                 onChange={handleChange}
+                required={required}
             />
         </div>
   );

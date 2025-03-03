@@ -7,6 +7,7 @@ import styles from "./page.module.scss";
 export default async function Home() {
 
   const stats = await fetchGraphql({ resolver: GET_STATS });
+  
   const { sales } = await fetchGraphql({
     resolver: GET_SALES_FOR_TABLE,
     variables: { limit: 5 }

@@ -1,64 +1,100 @@
 'use client';
-import {useState} from "react";
+import { useState, useEffect } from "react";
+import { fetchGraphql } from "@/services/fetchGraphql";
+import { CREATE_PRODUCT } from "@/graphql/mutations/product";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 
 const Index = () => {
 
     const [form, setForm] = useState({
-        name: "",
-        price: "",
+        name: "B",
+        price: 0,
         brand: "",
-        releaseYear: "",
+        releaseYear: 2000,
         category: "",
     });
 
+    //effectue une -opération à l' intialisation du composant
+    useEffect(() => { 
+        console.log(form);
+    }, []);
+
+    // effectue une opération à chaque fois que form change
+    // useEffect(() => {
+    //     console.log(form);
+    // }, [form]);
+
+    const submitAddProduct = async () => { 
+
+        try {
+            const data = await fetchGraphql({
+                resolver: CREATE_PRODUCT,
+                variables: {
+                    input: form
+                }
+            });
+            console.log(data);
+        }
+        catch (err) {
+            console.log(err);
+        }
+
+    }
+
+    const handleInputChange = (e) => {
+        // Si le type de l'input est number, on convertit la valeur en nombre
+        setForm({
+            ...form,
+            [e.target.name]: e.target.type ==="number" ? Number(e.target.value) : e.target.value
+        })
+    }
+
     return (
-        <form action="">
+        <form>
             <Input
                 name="name"
                 label="Name"
                 type="text"
-                handleChange={(e) => {
-                    console.log(form);
-                    setForm({
-                        ...form,
-                        name: e.target.value
-                    });
-                }}
+                value={form.name}
+                handleChange={(e) => handleInputChange(e)}
+                required={true}
             />
             <Input
                 name="price"
                 label="Price"
                 type="number"
-                handleChange={(e) => {
-                    console.log(form);
-                    setForm({
-                        ...form,
-                        price: e.target.value
-                    });
-                }}
+                value={form.price}
+                handleChange={(e) => handleInputChange(e)}
+                required={true}
             />
             <Input
                 name="brand"
                 label="brand"
                 type="text"
+                value={form.brand}
+                required={true}
+                handleChange={(e) => handleInputChange(e)}
             />
             <Input
                 name="releaseYear"
                 label="Release year"
                 type="number"
+                value={form.releaseYear}
+                handleChange={(e) => handleInputChange(e)}
             />
             <Input
-                name="Category"
+                name="category"
                 label="Category"
-                type="number"
+                type="text"
+                value={form.category}
+                handleChange={(e) => handleInputChange(e)}
             />
             <Button
                 handleClick={(e) => {
                     e.preventDefault();
-                    console.log(productName);
-                    console.log("Product created")
+                    console.log(form);
+                    submitAddProduct();
                 }}
                 label="Create product"
                 type="submit"
