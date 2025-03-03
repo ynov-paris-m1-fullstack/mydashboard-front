@@ -14,6 +14,8 @@ const Index = () => {
         releaseYear: 2000,
         category: "",
     });
+    
+    const [isLoading, setIsLoading] = useState(false);
 
     //effectue une -opération à l' intialisation du composant
     useEffect(() => { 
@@ -26,8 +28,8 @@ const Index = () => {
     // }, [form]);
 
     const submitAddProduct = async () => { 
-
         try {
+            setIsLoading(true);
             const data = await fetchGraphql({
                 resolver: CREATE_PRODUCT,
                 variables: {
@@ -35,9 +37,16 @@ const Index = () => {
                 }
             });
             console.log(data);
+            // setIsLoading(false);
         }
         catch (err) {
             console.log(err);
+            // setIsLoading(false);
+        }
+        finally {
+            setTimeout(() => { 
+                setIsLoading(false);
+            }, 2000);
         }
 
     }
@@ -96,7 +105,7 @@ const Index = () => {
                     console.log(form);
                     submitAddProduct();
                 }}
-                label="Create product"
+                label={isLoading ? "Loading..." : "Add product"}
                 type="submit"
                 classes="btn btn__primary"
             />
