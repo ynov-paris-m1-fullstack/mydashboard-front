@@ -3,8 +3,6 @@ import styles from "./header.module.scss";
 
 const Index = () => {
 
-    console.log(Logo);
-
     return (
         <header className={styles.header__main}>
             <div className={styles.header__logo}>
