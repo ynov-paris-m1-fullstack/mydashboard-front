@@ -15,10 +15,9 @@ const Index = ({
             type={type}
             disabled={disabled}
             className={`
-            ${styles.btn} 
+            btn ${classes}
             ${iconPosition && styles.with__icon}
-            ${styles.btn__primary}
-            // ${styles[classes]}`}
+            }`}
         >
             {
                 iconPosition === "left" && (

@@ -128,7 +128,7 @@ const Index = () => {
                     }}
                     label={isLoading ? "Loading..." : "Add product"}
                     type="submit"
-                    classes="btn btn__primary"
+                    classes="btn__primary"
                 />
             </form>
         </>

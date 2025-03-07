@@ -9,6 +9,7 @@
     align-items: center;
     gap: 15px;
     width: 220px;
+    flex: 1;
     h1 {
         font-size: 14px;
         font-weight: bold;
@@ -20,11 +21,12 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    flex: 1;
 }
 
 .input__wrapper {
     border: 1px solid black;
-    width: 30%;
+    width: 300px;
     border-radius: 5px;
     padding: 8px 15px;
     display: flex;
@@ -40,4 +42,11 @@
             outline: none;
         }
     }
+}
+
+.cta {
+    width: 300px;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }

@@ -1,0 +1,44 @@
+
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 9px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+
+    svg {
+        vertical-align: middle;
+        width: 15px;
+        height: 15px;
+    }
+
+    &.with__icon {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__primary {
+        background: black;
+        border: 1px solid black;
+        color: white;
+
+        svg {
+            fill: white;
+        }
+
+        &:hover {
+            background: white;
+            color: black;
+            border: 1px solid black;
+
+            svg {
+                fill: black;
+            }
+        }
+    }
+}
