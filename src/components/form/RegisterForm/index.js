@@ -1,16 +1,38 @@
+'use client';
+import { useActionState } from "react";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
-
+import register from "@/actions/auth";
+const initialState = {
+   message: "",
+}
 const Index = () => {
+
+    const [state, formAction, pending] = useActionState(register, initialState);
+    console.log(state);
+    
     return (
-        <form>
-            <Input label="first name" name="firstName"/>
-            <Input label="last name" name="lastName" />
-            <Input label="email" name="email" />
-            <Input label="password" name="password" type="password" />
+        <form action={formAction}>
+            <Input
+                type="text"
+                required={true}
+                label="first name" name="firstName" />
+            <Input
+                type="text"
+                label="last name" name="lastName" />
+            <Input
+                type="email"
+                label="email" name="email" />
+            <Input
+                type="password"
+                label="password" name="password"
+            />
             <Button
+                type="submit"
                 classes="btn__primary"
-                label="Register" />
+                disabled={pending}
+                label={pending ? "loading..." : "register"} />
+            {state?.message && <p>{state.message}</p>}
         </form>
     )
 }
