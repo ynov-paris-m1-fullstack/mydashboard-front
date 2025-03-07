@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    .right__part, .left__part {
+        width: 50%;
+    }
+    .left__part {
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .right__part {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        height: 100%;
+    }
+}
