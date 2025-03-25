@@ -8,10 +8,23 @@ Exercice :
 3. Faire fonctionner le bouton LOGOUT : 
     - Retirer le token des cookies
     - Rediriger sur login
-4. Dans le middleware : utiliser une route de l'API qui va s'assurer que le token soit toujours valide 
+4. Créer une page profil qui affichage les informations de l'utilisateur
+    - Possiblité de modifier les informations de l'utilisateurs (form + un controller + route)
+    - Route + controller => getMe 
+    - Route + controller => updateMe
+5. Côté API : middleware pour vérifier le token entre la route et le controller.
+6. Dans le middleware FRONT: utiliser une route de l'API qui va s'assurer que le token soit toujours valide 
     - Créer un  controller getMe /
     - GET 
     - Qui récupère le token dans le headers "Authorization" => renvoyer les informations d'un utilisateur
-5. Créer une page profil qui affichage les informations de l'utilisateur
-    - Possiblité de modifier les informations de l'utilisateurs (form + un controller + route)
-6. Côté API : middleware pour vérifier le token entre la route et le controller.
+
+fetch(ENPOINT, {
+    method: POST,
+    body: BODY,
+    headers: {
+        content: "Application/json",
+        authorization: Bearer + token
+    }
+})
+
+Côté API : req.headers.authorization;
