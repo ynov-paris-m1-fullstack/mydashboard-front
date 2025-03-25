@@ -1,8 +1,9 @@
 'use client';
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import register from "@/actions/auth";
+
 const initialState = {
    message: "",
 }
@@ -10,19 +11,29 @@ const Index = () => {
 
     const [state, formAction, pending] = useActionState(register, initialState);
     console.log(state);
+
+    useEffect(() => {
+        if (state?.success && state.redirect) {
+            window.location.href=state.redirect;
+            //similaire:  router.push(state.redirect);
+        }
+     }, [state]); 
     
     return (
         <form action={formAction}>
             <Input
                 type="text"
                 required={true}
-                label="first name" name="firstName" />
+                label="first name"
+                name="firstName" />
             <Input
                 type="text"
-                label="last name" name="lastName" />
+                label="last name"
+                name="lastName" />
             <Input
                 type="email"
-                label="email" name="email" />
+                label="email"
+                name="email" />
             <Input
                 type="password"
                 label="password" name="password"

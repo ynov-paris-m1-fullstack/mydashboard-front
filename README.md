@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Exercice : 
+1. Créer un composant Notification 
+    - Puisse être réutilisé pour des message d'erreur et de succès.
+    - Utiliser ce composant pour le formulaire Login & register
+2. Faire fonctionner le formulaire LOGIN= 
+    - Controller (voir les commentaires)
+    - Form 
+3. Faire fonctionner le bouton LOGOUT : 
+    - Retirer le token des cookies
+    - Rediriger sur login
+4. Dans le middleware : utiliser une route de l'API qui va s'assurer que le token soit toujours valide 
+    - Créer un  controller getMe /
+    - GET 
+    - Qui récupère le token dans le headers "Authorization" => renvoyer les informations d'un utilisateur
+5. Créer une page profil qui affichage les informations de l'utilisateur
+    - Possiblité de modifier les informations de l'utilisateurs (form + un controller + route)
+6. Côté API : middleware pour vérifier le token entre la route et le controller.

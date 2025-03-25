@@ -7,7 +7,9 @@ export default function Layout({ children }) {
                 <img src={Image.src} alt="auth" />
             </div>
             <div className={styles.right__part}>
-                {children}
+                <div className={styles.content}>
+                    {children}
+                </div>
             </div>
         </div>
     )
