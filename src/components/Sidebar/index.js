@@ -6,6 +6,7 @@ import LogoutIcon from "../../../public/logout.svg";
 import MenuItem from "@/components/MenuItem";
 import Button from "@/components/Button";
 import style from "./index.module.scss";
+import { logout } from "@/actions/auth/";
 
 const Index = () => {
 
@@ -22,7 +23,7 @@ const Index = () => {
         },
         {
             label: "Profil",
-            path: "/profil",
+            path: "/dashboard/profil",
             icon: ProfilIcon.src
         }
     ]
@@ -39,14 +40,15 @@ const Index = () => {
                 </ul>
             </nav>
             <div className={style.sidebar__bottom}>
-                <Button
-                    label="log out"
-                    type="button"
-                    classes="btn__primary with__icon"
-                    icon={LogoutIcon}
-                    iconPosition="left"
-                    handleClick={() => console.log("Logout")}
-                />
+                <form action={logout}>
+                    <Button
+                        label="log out"
+                        type="submit"
+                        classes="btn__primary with__icon"
+                        icon={LogoutIcon}
+                        iconPosition="left"
+                    />
+                </form>
             </div>
         </aside>
     )

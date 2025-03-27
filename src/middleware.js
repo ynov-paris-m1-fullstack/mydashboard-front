@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-
+import { fetchRestfull } from './services/fetchRestfull';
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request) {
@@ -11,6 +11,17 @@ export async function middleware(request) {
     if (!token) {
         return NextResponse.redirect(new URL('/auth/login', request.url))
     }
+    const user = await fetchRestfull({
+        endpoint: "user/me",
+        method: "GET",
+        token: token.value
+    });
+    console.log(user);
+    if (!user.success) {
+        cookiesStore.delete('token');
+        return NextResponse.redirect(new URL('/auth/login', request.url))
+    }
+    return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more

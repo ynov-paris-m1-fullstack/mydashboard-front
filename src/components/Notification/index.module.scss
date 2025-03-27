@@ -1,0 +1,12 @@
+.wrapper {
+    padding: 10px;
+    margin: 10px 0px;
+    &.error {
+        background: red;
+        color: white;
+    }
+    &.success {
+        background: green;
+        color: white;
+    }
+}

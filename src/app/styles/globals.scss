@@ -1,3 +1,4 @@
-@import './helpers/variables.scss';
-@import './base/base.scss';
-@import './theme/button.scss';
+@use './helpers/variables.scss';
+@use './base/base.scss';
+@use './theme/button.scss';
+@use './theme/spacing.scss';
